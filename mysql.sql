@@ -1,0 +1,42 @@
+DROP DATABASE IF EXISTS party;
+CREATE DATABASE party DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE party;
+
+CREATE TABLE courses (
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    courseName varchar(64) NOT NULL,
+    UNIQUE INDEX idx_courseName(courseName)
+)ENGINE=INNODB CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI;
+
+CREATE TABLE products (
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name varchar(64) NOT NULL,
+    quantity int NOT NULL,
+    course int NOT NULL,
+    price int NOT NULL,
+    FOREIGN KEY (course) REFERENCES courses(id),
+    UNIQUE INDEX idx_name(name)
+)ENGINE=INNODB CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI;
+
+CREATE TABLE sales (
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    saleDate date NOT NULL,
+    products int NOT NULL,
+    FOREIGN KEY (products) REFERENCES products(id)
+)ENGINE=INNODB CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI;
+
+CREATE TABLE sellers (
+    id int AUTO_INCREMENT PRIMARY KEY NOT NULL,
+    name varchar(64) NOT NULL,
+    course int NOT NULL,
+    FOREIGN KEY (course) REFERENCES courses(id)
+)ENGINE=INNODB CHARSET=UTF8 COLLATE=UTF8_UNICODE_CI;
+
+INSERT INTO courses(courseName)
+    VALUES("TÉCNICO EM INFORMÁTICA");
+
+INSERT INTO sellers(name, course)
+    VALUES("PAULO VICTOR SILVA AFFONSO", 1);
+
+INSERT INTO sellers(name, course)
+VALUES("MARIA EDUARDA LOUBACK", 1);
