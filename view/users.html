@@ -15,6 +15,7 @@
     <script src="usersJs/userList.js" defer></script>
     <script src="usersJs/userDelete.js" defer></script>
     <script src="usersJs/userInsert.js" defer></script>
+    <script src="usersJS/userUpdate.js" defer></script>
     <script src="utilJs/app.js" defer></script>
     <title>Usuários</title>
 </head>
@@ -34,7 +35,7 @@
                         <a class="nav-link" href="index.html">Início</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sales.html">Comprar</a>
+                        <a class="nav-link" href="checkout.html">Comprar</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Usuários</a>
@@ -43,19 +44,35 @@
                         <a class="nav-link" href="sales.html">Vendas</a>
                     </li>
                 </ul>
-                <div class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                       aria-expanded="false">
-                        <i class="bi bi-person-circle"></i>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-lg-end">
-                        <li><p class="px-3 m-0">Paulo Affonso</p></li>
-                        <li><p class="px-3">Tec. Informática</p></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Sair</a></li>
-                    </ul>
+                <div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                            <li><p class="px-3 m-0">Paulo Affonso</p></li>
+                            <li><p class="px-3">Tec. Informática</p></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-lg-end">
+                            <li><p class="px-3 m-0">Paulo Affonso</p></li>
+                            <li><p class="px-3">Tec. Informática</p></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Sair</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
@@ -73,12 +90,20 @@
                 <div class="modal-body">
                     <form>
                         <div class="mb-3">
-                            <label for="userName" class="col-form-label">Nome:</label>
+                            <label for="userName" class="col-form-label">Nome completo:</label>
                             <input type="text" class="form-control" id="userName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="userUsername" class="col-form-label">Nome de usuário:</label>
+                            <input type="text" class="form-control" id="userUsername">
                         </div>
                         <div class="mb-3">
                             <label for="userCourse" class="col-form-label">Curso:</label>
                             <select name="userCourse" class="form-select" id="userCourse"></select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="userPassword" class="col-form-label">Senha:</label>
+                            <input type="password" class="form-control" id="userPassword">
                         </div>
                     </form>
                 </div>
@@ -103,11 +128,16 @@
                     <form>
                         <div class="mb-3">
                             <label for="editUserId" class="col-form-label">ID:</label>
-                            <input type="text" class="form-control" id="editUserId" aria-label="disabled input" disabled>
+                            <input type="text" class="form-control" id="editUserId" aria-label="disabled input"
+                                   disabled>
                         </div>
                         <div class="mb-3">
                             <label for="editUserName" class="col-form-label">Nome:</label>
                             <input type="text" class="form-control" id="editUserName">
+                        </div>
+                        <div class="mb-3">
+                            <label for="editUserUsername" class="col-form-label">Nome de usuário:</label>
+                            <input type="text" class="form-control" id="editUserUsername">
                         </div>
                         <div class="mb-3">
                             <label for="editUserCourse" class="col-form-label">Curso:</label>
@@ -116,7 +146,7 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-secondary cancelEdit" data-bs-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary editUser" data-bs-dismiss="modal">Salvar alterações
                     </button>
                 </div>

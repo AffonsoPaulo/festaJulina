@@ -10,7 +10,9 @@ $sendButton.addEventListener("click", (event) => {
 const userInsert = () => {
     let user = {
         "name": document.querySelector("#userName").value,
-        "course": document.querySelector("#userCourse").value
+        "course": document.querySelector("#userCourse").value,
+        "username": document.querySelector("#userUsername").value,
+        "password": document.querySelector("#userPassword").value
     }
     let configMethod = {
         method: "POST",

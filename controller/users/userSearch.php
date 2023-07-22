@@ -4,7 +4,7 @@ require_once("../response.php");
 $id = (isset($_GET["id"]) && $_GET["id"] != null) ? $_GET["id"] : "";
 if ($id !== null) {
     try {
-        $sql = "SELECT s.id, s.name, c.courseName FROM sellers s JOIN courses c ON(c.id = s.course) WHERE s.id = ?";
+        $sql = "SELECT s.id, s.name, c.courseName, s.username FROM sellers s JOIN courses c ON(c.id = s.course) WHERE s.id = ?";
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(1, $id);
         $stmt->execute();
